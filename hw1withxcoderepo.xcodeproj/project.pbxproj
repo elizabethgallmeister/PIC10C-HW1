@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		11DE8A6C244F8B3A0048743F /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11DE8A6B244F8B3A0048743F /* main.cpp */; };
+		11DE8A6C244F8B3A0048743F /* cards.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11DE8A6B244F8B3A0048743F /* cards.cpp */; };
+		11DE8A74244F8B840048743F /* siete-y-medio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11DE8A73244F8B840048743F /* siete-y-medio.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +25,9 @@
 
 /* Begin PBXFileReference section */
 		11DE8A68244F8B3A0048743F /* hw1withxcoderepo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = hw1withxcoderepo; sourceTree = BUILT_PRODUCTS_DIR; };
-		11DE8A6B244F8B3A0048743F /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		11DE8A6B244F8B3A0048743F /* cards.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = cards.cpp; sourceTree = "<group>"; };
+		11DE8A72244F8B570048743F /* cards.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cards.h; sourceTree = "<group>"; };
+		11DE8A73244F8B840048743F /* siete-y-medio.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "siete-y-medio.cpp"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +60,9 @@
 		11DE8A6A244F8B3A0048743F /* hw1withxcoderepo */ = {
 			isa = PBXGroup;
 			children = (
-				11DE8A6B244F8B3A0048743F /* main.cpp */,
+				11DE8A6B244F8B3A0048743F /* cards.cpp */,
+				11DE8A72244F8B570048743F /* cards.h */,
+				11DE8A73244F8B840048743F /* siete-y-medio.cpp */,
 			);
 			path = hw1withxcoderepo;
 			sourceTree = "<group>";
@@ -119,7 +124,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11DE8A6C244F8B3A0048743F /* main.cpp in Sources */,
+				11DE8A6C244F8B3A0048743F /* cards.cpp in Sources */,
+				11DE8A74244F8B840048743F /* siete-y-medio.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
