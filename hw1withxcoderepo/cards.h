@@ -34,12 +34,6 @@ class Card {
       // Accessors
       string get_spanish_suit() const;
       string get_spanish_rank() const;
-
-      /*
-         These are the only functions you'll need to code
-         for this class. See the implementations of the two
-     functions above to get an idea of how to proceed.
-      */
       string get_english_suit() const;
       string get_english_rank() const;
 
@@ -59,15 +53,15 @@ private:
 
 
 class Hand {
-   public:
-      // A vector of Cards
-      Hand(); //is this valid?
-      void add_cards(Card new_card);
+public:
+    // A vector of Cards
+    Hand(); //is this valid?
 
-      // You decide what functions you'll need...
-
-   private:
-      // You decide what fields you'll need...
+    // You decide what functions you'll need...
+    void add_cards(Card new_card);
+    void sort_cards();
+private:
+    // You decide what fields you'll need...
     vector<Card>current_cards;
 };
 

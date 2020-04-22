@@ -9,10 +9,6 @@ You might or might not need these two extra libraries
 */
 
 
-/* *************************************************
-   Card class
-   ************************************************* */
-
 /*
    Default constructor for the Card class.
    It could give repeated cards. This is OK.
@@ -110,13 +106,63 @@ string Card::get_spanish_rank() const {
 // Accessor: returns a string with the suit of the card in English
 // This is just a stub! Modify it to your liking.
 string Card::get_english_suit() const {
-   return "";
+    string suitName;
+    switch (suit) {
+    case OROS:
+        suitName = "Golden coins";
+     break;
+    case COPAS:
+        suitName = "Cups";
+     break;
+    case ESPADAS:
+        suitName = "Swords";
+     break;
+    case BASTOS:
+        suitName = "Clubs";
+     break;
+    default: break;
+   }
+   return suitName;
 }
 
 // Accessor: returns a string with the rank of the card in English
 // This is just a stub! Modify it to your liking.
 string Card::get_english_rank() const {
-   return "";
+    string rankName;
+    switch (rank) {
+        case AS:
+            rankName = "One";
+    break;
+        case DOS:
+            rankName = "Two";
+    break;
+        case TRES:
+            rankName = "Three";
+    break;
+        case CUATRO:
+            rankName = "Four";
+    break;
+        case CINCO:
+            rankName = "Five";
+    break;
+        case SEIS:
+            rankName = "Six";
+    break;
+        case SIETE:
+            rankName = "Seven";
+    break;
+        case SOTA:
+            rankName = "Jack";
+    break;
+        case CABALLO:
+            rankName = "Knight";
+    break;
+        case REY:
+            rankName = "King";
+    break;
+        default: break;
+   }
+   return rankName;
 }
 
 
@@ -135,20 +181,20 @@ bool Card::operator < (Card card2) const {
 
 
 
-/* *************************************************
-   Hand class
-   ************************************************* */
-// Implemente the member functions of the Hand class here.
 void Hand::add_cards(Card new_card)
 {
     current_cards.push_back(new_card);
 }
 
+void Hand::sort_cards()
+{
+    for( int i = 0; i < current_cards.size()-1; i++ )
+    {
+        if( current_cards[i+1]<current_cards[i] )
+            swap(current_cards[i], current_cards[i+1]);
+    }
+}
 
-/* *************************************************
-   Player class
-   ************************************************* */
-// Implemente the member functions of the Player class here.
 int Player::get_money() const
 {
     return money;
