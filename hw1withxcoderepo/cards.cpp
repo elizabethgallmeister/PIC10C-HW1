@@ -181,8 +181,9 @@ bool Card::operator < (Card card2) const {
 
 
 
-void Hand::add_cards(Card new_card)
+void Hand::add_cards()
 {
+    Card new_card;
     current_cards.push_back(new_card);
 }
 
@@ -195,6 +196,17 @@ void Hand::sort_cards()
     }
 }
 
+void Hand::print_cards()
+{
+    sort_cards(); //probably have to reassign this but
+    for( int i = 0; i < current_cards.size(); i++ )
+    cout<< "\t"<< current_cards[i].get_spanish_rank()<< " de "
+        << current_cards[i].get_spanish_suit()
+        << "\t("<< current_cards[i].get_english_rank()<< " of "
+    << current_cards[i].get_english_suit() <<")\n";
+    
+}
+    
 int Player::get_money() const
 {
     return money;
@@ -204,3 +216,4 @@ void Player::increase_money(int amount)
 {
     money += amount;
 }
+

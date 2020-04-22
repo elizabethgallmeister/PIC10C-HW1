@@ -55,11 +55,11 @@ private:
 class Hand {
 public:
     // A vector of Cards
-    Hand(); //is this valid?
-
+    Hand(){}
     // You decide what functions you'll need...
-    void add_cards(Card new_card);
+    void add_cards();
     void sort_cards();
+    void print_cards();
 private:
     // You decide what fields you'll need...
     vector<Card>current_cards;
