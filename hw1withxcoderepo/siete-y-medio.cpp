@@ -12,27 +12,30 @@ using namespace std;
 
 // Non member functions declarations (if any)
 
-
 // Non member functions implementations (if any)
-
 
 // Stub for main
 int main(){
-    int availableMoney = 100;
+    Player person(100); //initialize person with $100
+    Player dealer(900); //initializes dealer with $900
+    Hand personhand; //empty card vector
+    Hand dealerhand; //empty card vector
     int bet;
     bool done = false;
-    while(!done) 
+    while(!done)
     {
-        cout<<"You have $"<< availableMoney << ". Enter bet: ";
+        cout<<"You have $"<< person.get_money() << ". Enter bet: ";
         cin>>bet;
-        if(bet > availableMoney)
+        if(bet > person.get_money())
         {
             cout<< "You don't have that much. Enter bet: ";
+            cin>>bet;
             cout<< endl;
         }
-        if( availableMoney <= 0 ) // need to add || dealer loses 900
-            done = true;
-        done = true; // for the sake of not looping infinitely until things work
+        
+        cout<< "Your cards: \n";
+        //cout<< "\t " << get_spanish_rank() << " of " << get_spanish_suit();
+        done = true;
     }
     return 0;
 }
