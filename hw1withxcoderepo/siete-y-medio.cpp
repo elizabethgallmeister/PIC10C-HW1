@@ -32,9 +32,9 @@ int main(){
             cin>>bet;
             cout<< endl;
         }
-        
+        personhand.add_cards();
         cout<< "Your cards: \n";
-        //cout<< "\t " << get_spanish_rank() << " of " << get_spanish_suit();
+        personhand.print_cards();
         done = true;
     }
     return 0;
