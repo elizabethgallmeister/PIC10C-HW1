@@ -18,6 +18,21 @@ using namespace std;
 
 // Stub for main
 int main(){
-   /* --STATEMENTS-- */
-   return 0;
+    int availableMoney = 100;
+    int bet;
+    bool done = false;
+    while(!done) //do-while loop may be better?
+    {
+        cout<<"You have $"<< availableMoney << ". Enter bet: ";
+        cin>>bet;
+        if(bet > availableMoney)
+        {
+            cout<< "You don't have that much. Enter bet: ";
+            cout<< endl;
+        }
+        if( availableMoney <= 0 ) // need to add || dealer loses 900
+            done = true;
+        done = true; // for the sake of not looping infinitely until things work
+    }
+    return 0;
 }
