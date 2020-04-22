@@ -21,7 +21,7 @@ int main(){
     int availableMoney = 100;
     int bet;
     bool done = false;
-    while(!done) //do-while loop may be better?
+    while(!done) 
     {
         cout<<"You have $"<< availableMoney << ". Enter bet: ";
         cin>>bet;
