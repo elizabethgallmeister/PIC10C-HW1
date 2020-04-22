@@ -61,26 +61,27 @@ private:
 class Hand {
    public:
       // A vector of Cards
-      Hand();
+      Hand(); //is this valid?
+      void add_cards(Card new_card);
 
       // You decide what functions you'll need...
 
    private:
       // You decide what fields you'll need...
+    vector<Card>current_cards;
 };
 
 
 class Player {
-   public:
-      // Constructor.
-      //    Assigns initial amount of money
-      Player(int m);
+public:
+    // Constructor: Assigns initial amount of money
+    Player(int m) : money(m){}
+    int get_money() const;
+    void increase_money(int amount);
 
-      // You decide what functions you'll need...
-
-   private:
-      int money;
-      // You decide what extra fields (if any) you'll need...
+private:
+    int money;
+    // You decide what extra fields (if any) you'll need...
 };
 
 #endif
