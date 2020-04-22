@@ -9,10 +9,6 @@ You might or might not need these two extra libraries
 */
 
 
-/* *************************************************
-   Card class
-   ************************************************* */
-
 /*
    Default constructor for the Card class.
    It could give repeated cards. This is OK.
@@ -185,20 +181,20 @@ bool Card::operator < (Card card2) const {
 
 
 
-/* *************************************************
-   Hand class
-   ************************************************* */
-// Implemente the member functions of the Hand class here.
 void Hand::add_cards(Card new_card)
 {
     current_cards.push_back(new_card);
 }
 
+void Hand::sort_cards()
+{
+    for( int i = 0; i < current_cards.size()-1; i++ )
+    {
+        if( current_cards[i+1]<current_cards[i] )
+            swap(current_cards[i], current_cards[i+1]);
+    }
+}
 
-/* *************************************************
-   Player class
-   ************************************************* */
-// Implemente the member functions of the Player class here.
 int Player::get_money() const
 {
     return money;
