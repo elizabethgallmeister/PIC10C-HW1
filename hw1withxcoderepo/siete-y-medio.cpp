@@ -18,6 +18,20 @@ using namespace std;
 
 // Stub for main
 int main(){
-   /* --STATEMENTS-- */
+   int availableMoney = 100;
+   int bet;
+   cout<<"working"<<endl;
+   bool done = false;
+   while(!done)
+   {
+       cout<<"You have $"<< availableMoney << ". Enter bet: ";
+       cin>>bet;
+       if(bet > availableMoney)
+       {
+           cout<< "You don't have that much. Enter bet: ";
+           cout<< endl;
+       }
+       done = true;
+   }
    return 0;
 }
