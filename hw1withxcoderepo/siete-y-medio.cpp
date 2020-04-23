@@ -21,6 +21,7 @@ int main(){
     Hand personhand; //empty card vector
     Hand dealerhand; //empty card vector
     int bet;
+    char choice;
     bool done = false;
     while(!done)
     {
@@ -33,8 +34,24 @@ int main(){
             cout<< endl;
         }
         personhand.add_cards();
-        cout<< "Your cards: \n";
+        cout<< "Your cards: \n\t\t";
         personhand.print_cards();
+        cout<< "Your total is "<< personhand.get_total()
+            << ". Do you want another card (y/n)? ";
+        cin>>choice;
+        while(choice == 'y')
+        {
+            personhand.add_cards();
+            cout<< "New card:\n";
+            personhand.print_cards();
+            cout<< "Your new total is "<< personhand.get_total()
+                <<". Do you want another card (y/n)? ";
+            cin>>choice;
+        }
+        dealerhand.add_cards();
+        cout<<"Dealer's cards: ";
+        dealerhand.print_cards();
+        cout<< "The dealer's total is" <<dealerhand.get_total();
         done = true;
     }
     return 0;
