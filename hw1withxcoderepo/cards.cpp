@@ -9,12 +9,8 @@ You might or might not need these two extra libraries
 */
 
 
-/*
-   Default constructor for the Card class.
-   It could give repeated cards. This is OK.
-   Most variations of Blackjack are played with
-   several decks of cards at the same time.
-*/
+
+//Default constructor for the Card class.
 Card::Card(){
    int r = 1 + rand() % 4;
    switch (r) {
@@ -104,12 +100,11 @@ string Card::get_spanish_rank() const {
 
 
 // Accessor: returns a string with the suit of the card in English
-// This is just a stub! Modify it to your liking.
 string Card::get_english_suit() const {
     string suitName;
     switch (suit) {
     case OROS:
-        suitName = "Golden coins";
+        suitName = "Coins";
      break;
     case COPAS:
         suitName = "Cups";
@@ -126,7 +121,6 @@ string Card::get_english_suit() const {
 }
 
 // Accessor: returns a string with the rank of the card in English
-// This is just a stub! Modify it to your liking.
 string Card::get_english_rank() const {
     string rankName;
     switch (rank) {
@@ -165,8 +159,6 @@ string Card::get_english_rank() const {
    return rankName;
 }
 
-
-
 // Assigns a numerical value to card based on rank.
 // AS=1, DOS=2, ..., SIETE=7, SOTA=10, CABALLO=11, REY=12
 int Card::get_rank() const {
@@ -178,17 +170,13 @@ int Card::get_rank() const {
 bool Card::operator < (Card card2) const {
    return rank < card2.rank;
 }
-
-
-
-void Hand::add_cards()
-{
-    Card new_card;
+    
+void Hand::add_cards(Card new_card){
     current_cards.push_back(new_card);
+    //newest = &new_card;
 }
 
-void Hand::sort_cards()
-{
+void Hand::sort_cards(){
     for( int i = 0; i < current_cards.size()-1; i++ )
     {
         if( current_cards[i+1]<current_cards[i] )
@@ -196,9 +184,8 @@ void Hand::sort_cards()
     }
 }
 
-void Hand::print_cards()
-{
-    //sort_cards(); //probably have to reassign this but
+void Hand::print_cards(){
+    sort_cards(); //probably have to reassign this but
     for( int i = 0; i < current_cards.size(); i++ ){
         cout<< "\t\t" << current_cards[i].get_spanish_rank()<< " de "
             << current_cards[i].get_spanish_suit()
@@ -207,11 +194,9 @@ void Hand::print_cards()
     }
 }
     
-double Hand::get_total()
-{
+double Hand::get_total(){
     double sum = 0;
-    for( int i = 0; i < current_cards.size(); i++ )
-    {
+    for( int i = 0; i < current_cards.size(); i++ ){
     double addedVal = current_cards[i].get_rank();
         if( addedVal >= 10 )
             addedVal = .5;
@@ -220,13 +205,14 @@ double Hand::get_total()
     return sum;
 }
     
-int Player::get_money() const
-{
+void Hand::clear_hand(){
+    current_cards.clear();
+}
+    
+int Player::get_money() const{
     return money;
 }
 
-void Player::increase_money(int amount)
-{
+void Player::increase_money(int amount){
     money += amount;
 }
-
