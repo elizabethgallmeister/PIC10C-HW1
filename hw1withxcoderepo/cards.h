@@ -60,7 +60,7 @@ public:
     void add_cards();
     void sort_cards();
     void print_cards();
-    int get_total();
+    double get_total();
 private:
     // You decide what fields you'll need...
     vector<Card>current_cards;

@@ -207,11 +207,16 @@ void Hand::print_cards()
     }
 }
     
-int Hand::get_total()
+double Hand::get_total()
 {
-    int sum = 0;
+    double sum = 0;
     for( int i = 0; i < current_cards.size(); i++ )
-        sum += current_cards[i].get_rank();
+    {
+    double addedVal = current_cards[i].get_rank();
+        if( addedVal >= 10 )
+            addedVal = .5;
+        sum += addedVal;
+    }
     return sum;
 }
     
