@@ -200,7 +200,7 @@ void Hand::print_cards()
 {
     //sort_cards(); //probably have to reassign this but
     for( int i = 0; i < current_cards.size(); i++ ){
-        cout<< current_cards[i].get_spanish_rank()<< " de "
+        cout<< "\t\t" << current_cards[i].get_spanish_rank()<< " de "
             << current_cards[i].get_spanish_suit()
             << "\t("<< current_cards[i].get_english_rank()<< " of "
             << current_cards[i].get_english_suit() <<")\n";
