@@ -198,13 +198,26 @@ void Hand::sort_cards()
 
 void Hand::print_cards()
 {
-    sort_cards(); //probably have to reassign this but
-    for( int i = 0; i < current_cards.size(); i++ )
-    cout<< "\t"<< current_cards[i].get_spanish_rank()<< " de "
-        << current_cards[i].get_spanish_suit()
-        << "\t("<< current_cards[i].get_english_rank()<< " of "
-    << current_cards[i].get_english_suit() <<")\n";
+    //sort_cards(); //probably have to reassign this but
+    for( int i = 0; i < current_cards.size(); i++ ){
+        cout<< current_cards[i].get_spanish_rank()<< " de "
+            << current_cards[i].get_spanish_suit()
+            << "\t("<< current_cards[i].get_english_rank()<< " of "
+            << current_cards[i].get_english_suit() <<")\n";
+    }
+}
     
+double Hand::get_total()
+{
+    double sum = 0;
+    for( int i = 0; i < current_cards.size(); i++ )
+    {
+    double addedVal = current_cards[i].get_rank();
+        if( addedVal >= 10 )
+            addedVal = .5;
+        sum += addedVal;
+    }
+    return sum;
 }
     
 int Player::get_money() const
