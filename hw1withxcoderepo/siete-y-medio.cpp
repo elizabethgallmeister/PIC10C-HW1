@@ -9,10 +9,10 @@ using namespace std;
 
 void print_new(Card new_card)
 {
-    cout<< "New card:\n\t\t"
+    cout<< "\nNew card:\n\t\t"
     << new_card.get_spanish_rank() << " de "<< new_card.get_spanish_suit()
     << "\t(" << new_card.get_english_rank() << " of "
-    << new_card.get_english_suit()<< ")\n";
+    << new_card.get_english_suit()<< ")\n\n";
 }
 
 int main(){
@@ -21,7 +21,7 @@ int main(){
     Hand personhand; //empty card vector
     Hand dealerhand; //empty card vector
     int bet;
-    char choice = 'y';
+    char choice;
     while(person.get_money()>0 && dealer.get_money()>0 ){
         cout<<"You have $"<< person.get_money() << ". Enter bet: ";
         cin>>bet;
@@ -36,17 +36,18 @@ int main(){
         personhand.add_cards(new_card);
         cout<< "Your cards: \n";
         personhand.print_cards();
+        choice = 'y';
         while( personhand.get_total()<7.5 && choice == 'y' )
         {
             cout<< "Your total is "<< personhand.get_total() << ". ";
             cout<< "Do you want another card (y/n)? ";
             cin>>choice;
             if(choice == 'y'){
-                cout<< "Your cards:\n";
                 Card new_card;
                 if(personhand.get_total() != 0 )
                     print_new(new_card);
                 personhand.add_cards(new_card);
+                cout<< "Your cards:\n";
                 personhand.print_cards();
                 cout<< endl;
             }

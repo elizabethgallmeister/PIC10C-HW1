@@ -185,7 +185,7 @@ void Hand::sort_cards(){
 }
 
 void Hand::print_cards(){
-    sort_cards(); //probably have to reassign this but
+    //sort_cards(); //probably have to reassign this but
     for( int i = 0; i < current_cards.size(); i++ ){
         cout<< "\t\t" << current_cards[i].get_spanish_rank()<< " de "
             << current_cards[i].get_spanish_suit()
