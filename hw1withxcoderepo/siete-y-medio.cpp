@@ -7,8 +7,7 @@
 #include "cards.h"
 using namespace std;
 
-void print_new(Card new_card)
-{
+void print_new(Card new_card){
     cout<< "\nNew card:\n\t\t"
     << new_card.get_spanish_rank() << " de "<< new_card.get_spanish_suit()
     << "\t(" << new_card.get_english_rank() << " of "
@@ -16,6 +15,11 @@ void print_new(Card new_card)
 }
 
 int main(){
+    srand(time(0));
+    ofstream fout;
+    fout.open("output.txt");
+    fout<<"-----------------------------------------------\n\n";
+    int game_number = 1;
     Player person(100); //initialize person with $100
     Player dealer(900); //initializes dealer with $900
     Hand personhand; //empty card vector
@@ -30,12 +34,15 @@ int main(){
             cin>>bet;
             cout<< endl;
         }
+        fout<< "Game number: " << game_number
+            << "\nMoney left: $" << person.get_money()
+            << "\nBet: " << bet << "\n\n";
         Card new_card;
         if(personhand.get_total() != 0 )
             print_new(new_card);
         personhand.add_cards(new_card);
         cout<< "Your cards: \n";
-        personhand.print_cards();
+        personhand.print_cards(cout);
         choice = 'y';
         while( personhand.get_total()<7.5 && choice == 'y' )
         {
@@ -48,10 +55,13 @@ int main(){
                     print_new(new_card);
                 personhand.add_cards(new_card);
                 cout<< "Your cards:\n";
-                personhand.print_cards();
+                personhand.print_cards(cout);
                 cout<< endl;
             }
             cout<< endl;
+            fout<< "Your cards:\n";
+            personhand.print_cards(fout);
+            fout<< "Your total: " << personhand.get_total() << ".\n\n";
         }
         
         while(dealerhand.get_total() < 5.5){
@@ -60,11 +70,14 @@ int main(){
                 print_new(new_card);
             dealerhand.add_cards(new_card);
             cout<<"Dealer's cards:\n";
-            dealerhand.print_cards();
+            dealerhand.print_cards(cout);
             cout<< "The dealer's total is " <<dealerhand.get_total() <<".\n\n";
         }
         double dealertotal = dealerhand.get_total();
         double persontotal = personhand.get_total();
+        fout<< "Dealer's cards:\n";
+        dealerhand.print_cards(fout);
+        fout<< "Dealer's total: " << dealerhand.get_total() << ".\n\n";
         
         if( (dealertotal <= 7.5 && persontotal < dealertotal) || persontotal > 7.5 ){
             cout<< "Too bad. You lose $" << bet;
@@ -79,13 +92,16 @@ int main(){
         else
             cout<< "Nobody wins!\n";
         cout<< endl;
+        game_number++;
+        fout<<"-----------------------------------------------\n\n";
         personhand.clear_hand();
         dealerhand.clear_hand();
     }
     if( person.get_money() == 0 )
-        cout<< "You have $0. GAME OVER!\n Come back when you have more money.";
+        cout<< "You have $0. GAME OVER!\nCome back when you have more money.";
     else
         cout<< "You win " << bet<< "\n\nCongratulations. You beat the casino!";
-    cout<< "\n\nBye!";
+    cout<< "\n\nBye!\n";
+    fout.close();
     return 0;
 }
