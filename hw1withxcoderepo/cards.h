@@ -58,7 +58,7 @@ public:
     // You decide what functions you'll need...
     void add_cards(Card new_card);
     void sort_cards();
-    void print_cards();
+    void print_cards(ostream& out);
     double get_total();
     void clear_hand();
 private:

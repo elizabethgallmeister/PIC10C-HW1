@@ -125,7 +125,7 @@ string Card::get_english_rank() const {
     string rankName;
     switch (rank) {
         case AS:
-            rankName = "One";
+            rankName = "Ace";
     break;
         case DOS:
             rankName = "Two";
@@ -173,21 +173,19 @@ bool Card::operator < (Card card2) const {
     
 void Hand::add_cards(Card new_card){
     current_cards.push_back(new_card);
-    //newest = &new_card;
 }
 
 void Hand::sort_cards(){
-    for( int i = 0; i < current_cards.size()-1; i++ )
-    {
+    for( int i = 0; i < current_cards.size()-1; i++ ){
         if( current_cards[i+1]<current_cards[i] )
             swap(current_cards[i], current_cards[i+1]);
     }
 }
 
-void Hand::print_cards(){
-    //sort_cards(); //probably have to reassign this but
+void Hand::print_cards(ostream& out){
+    sort_cards(); //probably have to reassign this but
     for( int i = 0; i < current_cards.size(); i++ ){
-        cout<< "\t\t" << current_cards[i].get_spanish_rank()<< " de "
+        out<< "\t\t" << current_cards[i].get_spanish_rank()<< " de "
             << current_cards[i].get_spanish_suit()
             << "\t("<< current_cards[i].get_english_rank()<< " of "
             << current_cards[i].get_english_suit() <<")\n";
